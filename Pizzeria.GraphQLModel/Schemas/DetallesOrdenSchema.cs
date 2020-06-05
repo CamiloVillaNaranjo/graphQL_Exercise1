@@ -1,16 +1,15 @@
 ﻿using GraphQL;
+using GraphQL.Types;
 using Pizzeria.GraphQLModels.Queries;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Pizzeria.GraphQLModels.Schemas
 {
-    public class DetallesOrdenSchema: GraphQL.Types.Schema
+    public class DetallesOrdenSchema : Schema
     {
-        public DetallesOrdenSchema(IServiceProvider services):base()
+        public DetallesOrdenSchema(IServiceProvider sp)
         {
-            Query = (ConsultaDetallesOrden)services.GetService(typeof(ConsultaDetallesOrden));
+            Query = (PizzaOrderQuery)sp.GetService(typeof(PizzaOrderQuery));
         }
     }
 }

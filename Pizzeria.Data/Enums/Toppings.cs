@@ -6,12 +6,12 @@ namespace Pizzeria.Data.Enums
     public enum Ingredientes
     {
         NONE = 0,
-        Peperoni = 1,
+        Pepperoni = 1,
         Mushrooms = 2,
-        Onions = 3,
-        Sausage = 4,
-        Bacon = 5,
-        ExtraCheese = 6,
-        BlackOlives = 7
+        Onions = 4,
+        Sausage = 8,
+        Bacon = 16,
+        ExtraCheese = 32,
+        BlackOlives = 64
     }
 }

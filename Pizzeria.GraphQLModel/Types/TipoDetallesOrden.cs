@@ -1,15 +1,13 @@
 ﻿using GraphQL.Types;
+using Pizzeria.Business.Services;
 using Pizzeria.Data.Entities;
 using Pizzeria.GraphQLModels.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Pizzeria.GraphQLModels.Types
 {
     public class TipoDetallesOrden : ObjectGraphType<DetalleOrdenes>
     {
-        public TipoDetallesOrden()
+        public TipoDetallesOrden(IServicioDetallesPizza servicioDetallesPizza)
         {
             Name = nameof(TipoDetallesOrden);
 
@@ -23,6 +21,10 @@ namespace Pizzeria.GraphQLModels.Types
             Field<EstadoOrdenEnumType>(
                 name: "estadoOrden",
                 resolve: context => context.Source.EstadoOrden.ToString());
+
+            Field<ListGraphType<TipoDetallesPizza>>(
+                 name: "pizzasPorOrden",
+                 resolve: context => servicioDetallesPizza.GetAllDetallePizzasByOrder(context.Source.Id));
         }
     }
 }

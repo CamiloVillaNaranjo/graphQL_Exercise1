@@ -39,7 +39,7 @@ namespace Pizzeria.Api
             services.AddSingleton<EstadoOrdenEnumType>();
             services.AddSingleton<IngredientesEnumType>();
 
-            services.AddSingleton<ConsultaDetallesOrden>();
+            services.AddSingleton<PizzaOrderQuery>();
             services.AddSingleton<DetallesOrdenSchema>();
         }
     }

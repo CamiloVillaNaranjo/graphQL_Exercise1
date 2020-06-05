@@ -1,4 +1,5 @@
 ﻿using Pizzeria.Data.Entities;
+using Pizzeria.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,9 @@ namespace Pizzeria.Data
             {
                 dbContext.DetallePizzas.AddRange(new List<DetallePizzas>
                 {
-                    new DetallePizzas("Pizza Napolitana", Enums.Ingredientes.ExtraCheese| Enums.Ingredientes.Onions,Enums.Sizes.Large,18,1),
-                    new DetallePizzas("Pizza Griega",Enums.Ingredientes.Mushrooms | Enums.Ingredientes.Peperoni | Enums.Ingredientes.Bacon, Enums.Sizes.xLarge, 12,2),
-                    new DetallePizzas("Pizza Thin-Crusty", Enums.Ingredientes.Peperoni | Enums.Ingredientes.ExtraCheese,Enums.Sizes.Medium,21,3)
+                    new DetallePizzas("Pizza Napolitana", Ingredientes.ExtraCheese| Ingredientes.Onions, Sizes.Large,18,4),
+                    new DetallePizzas("Pizza Griega",Ingredientes.Mushrooms | Ingredientes.Pepperoni | Ingredientes.Bacon, Sizes.xLarge, 12,5),
+                    new DetallePizzas("Pizza Thin-Crusty", Ingredientes.Pepperoni | Ingredientes.ExtraCheese,Sizes.Medium,21,6)
                 });
 
                 dbContext.SaveChanges();

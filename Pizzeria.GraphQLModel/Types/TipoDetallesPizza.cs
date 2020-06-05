@@ -15,12 +15,15 @@ namespace Pizzeria.GraphQLModels.Types
             Field(x => x.Id);
             Field(x => x.Nombre);
             Field(x => x.IdDetalleOrdenes);
-            Field(x => x.Tamano);
             Field(x => x.Precio);
 
             Field<StringGraphType>(
-                name: "ingredientes",
+                name: "Ingredientes",
                 resolve: context => context.Source.Ingredientes.ToString());
+
+            Field<StringGraphType>(
+                name: "Tamano",
+                resolve: context => context.Source.Tamano.ToString());
         }
     }
 }

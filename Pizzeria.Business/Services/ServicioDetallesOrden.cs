@@ -11,6 +11,7 @@ namespace Pizzeria.Business.Services
     public interface IServicioDetallesOrden
     {
         Task<IEnumerable<DetalleOrdenes>> GetAllOrdenesNuevasAsync();
+        Task<DetalleOrdenes> GetDetalleOrdenById(int idDetalleOrden);
     }
 
     public class ServicioDetallesOrden : IServicioDetallesOrden
@@ -25,6 +26,11 @@ namespace Pizzeria.Business.Services
         public async Task<IEnumerable<DetalleOrdenes>> GetAllOrdenesNuevasAsync()
         {
             return await _dbContext.DetalleOrdenes.Where(o=>o.EstadoOrden == EstadoOrden.Created).ToListAsync();
+        }
+
+        public async Task<DetalleOrdenes> GetDetalleOrdenById(int idDetalleOrden)
+        {
+            return await _dbContext.DetalleOrdenes.FindAsync(idDetalleOrden);
         }
     }
 }
